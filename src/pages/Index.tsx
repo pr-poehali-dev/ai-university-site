@@ -13,316 +13,359 @@ const Index = () => {
     message: ""
   });
 
-  const stats = [
-    { value: "8", label: "лет на рынке ИИ" },
-    { value: "50+", label: "клиентов на постоянной подписке" },
-    { value: "300+", label: "обученных компаний" }
-  ];
-
-  const cases = [
-    {
-      icon: "ShoppingCart",
-      title: "Ритейл и e-commerce",
-      description: "Автоматизация обработки заказов, персонализация предложений, прогнозирование спроса"
-    },
-    {
-      icon: "Building2",
-      title: "Производство",
-      description: "Оптимизация производственных процессов, предиктивное обслуживание оборудования"
-    },
-    {
-      icon: "TrendingUp",
-      title: "Финансы",
-      description: "Анализ рисков, автоматизация отчётности, прогнозирование трендов"
-    },
-    {
-      icon: "Users",
-      title: "HR и рекрутинг",
-      description: "Автоматический скрининг резюме, анализ эффективности персонала"
-    }
-  ];
-
-  const benefits = [
-    {
-      icon: "Zap",
-      title: "Быстрое внедрение",
-      description: "От идеи до результата за 2-4 недели"
-    },
-    {
-      icon: "Target",
-      title: "Точечные решения",
-      description: "Закрываем конкретные бизнес-задачи"
-    },
-    {
-      icon: "TrendingUp",
-      title: "Измеримый ROI",
-      description: "Фиксируем метрики до и после внедрения"
-    },
-    {
-      icon: "Users",
-      title: "Обучение команды",
-      description: "Ваши сотрудники умеют работать с ИИ"
-    }
-  ];
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-muted/30">
-      <nav className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+    <div className="min-h-screen bg-white">
+      <nav className="border-b bg-white sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <Icon name="Brain" className="text-white" size={24} />
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md">
+              <Icon name="Brain" className="text-white" size={26} />
             </div>
-            <span className="text-xl font-bold">ИИ-Университет</span>
+            <span className="text-2xl font-bold text-foreground">ИИ-Университет</span>
           </div>
-          <div className="hidden md:flex gap-8">
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">О нас</a>
+          <div className="hidden md:flex gap-6 items-center">
             <a href="#cases" className="text-sm font-medium hover:text-primary transition-colors">Кейсы</a>
-            <a href="#benefits" className="text-sm font-medium hover:text-primary transition-colors">Преимущества</a>
-            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Контакты</a>
+            <a href="#products" className="text-sm font-medium hover:text-primary transition-colors">Продукты</a>
+            <a href="#expertise" className="text-sm font-medium hover:text-primary transition-colors">Экспертиза</a>
+            <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              Связаться
+            </Button>
           </div>
-          <Button className="hidden md:inline-flex">Связаться</Button>
         </div>
       </nav>
 
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-transparent" />
-        <div className="container mx-auto px-4 py-20 md:py-32 relative">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-fade-in">
-              <div className="inline-block px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium">
-                Внедрение ИИ для бизнеса
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                Превратите разговоры об ИИ в{" "}
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  реальные результаты
-                </span>
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Помогаем компаниям внедрить искусственный интеллект и получить измеримое повышение операционной эффективности. 8 лет опыта, 300+ обученных компаний.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="text-base" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                  Получить консультацию
-                  <Icon name="ArrowRight" className="ml-2" size={20} />
-                </Button>
-                <Button size="lg" variant="outline" className="text-base">
-                  Смотреть кейсы
-                  <Icon name="Play" className="ml-2" size={20} />
-                </Button>
-              </div>
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-white">
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <div className="max-w-5xl mx-auto text-center space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold border border-primary/20">
+              <Icon name="TrendingUp" size={18} />
+              <span>8 лет на рынке ИИ · 50+ клиентов · 300+ компаний обучили</span>
             </div>
-            <div className="relative animate-slide-up">
-              <img 
-                src="https://cdn.poehali.dev/projects/60a75a1d-0104-4f70-904f-6dc549f87f40/files/ded5efe0-4e5e-4502-b937-5a35a3a6ba8d.jpg"
-                alt="AI Technology"
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl" />
+            
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground">
+              Все говорят про ИИ,<br />
+              но{" "}
+              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                никто не внедряет
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
+              Превращаем разговоры об искусственном интеллекте в измеримое повышение операционной эффективности
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <Button size="lg" className="text-base px-8" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                Начать зарабатывать больше
+                <Icon name="ArrowRight" className="ml-2" size={20} />
+              </Button>
+              <Button size="lg" variant="outline" className="text-base px-8" onClick={() => document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })}>
+                Смотреть кейсы
+                <Icon name="Play" className="ml-2" size={20} />
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-3 gap-8 pt-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-1">8</div>
+                <div className="text-sm text-muted-foreground">лет на рынке ИИ</div>
+              </div>
+              <div className="text-center border-x border-border">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-1">50+</div>
+                <div className="text-sm text-muted-foreground">клиентов на подписке</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-1">300+</div>
+                <div className="text-sm text-muted-foreground">обученных компаний</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-secondary text-white">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center space-y-2">
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-accent bg-clip-text text-transparent">
-                  {stat.value}
-                </div>
-                <div className="text-lg text-white/80">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold">
-              Проблема: все говорят про ИИ, но никто не внедряет
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Проблема знакома?
             </h2>
-            <p className="text-xl text-muted-foreground">
-              Компании понимают потенциал искусственного интеллекта, но не знают, с чего начать. Мы помогаем пройти путь от идеи до работающего решения.
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Вы понимаете потенциал ИИ. Видите возможности для бизнеса. Но не знаете, с чего начать.<br />
+              <span className="font-semibold text-foreground">Мы помогаем пройти путь от идеи до работающего решения за 2-4 недели.</span>
             </p>
           </div>
         </div>
       </section>
 
-      <section id="cases" className="py-20 bg-muted/30">
+      <section id="cases" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Кейсы по отраслям</h2>
-            <p className="text-xl text-muted-foreground">Реальные результаты в разных сегментах бизнеса</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">Реальные результаты по отраслям</h2>
+            <p className="text-lg text-muted-foreground">Каждый сегмент видит свои кейсы. Это работает для крупных сетей и МСБ.</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {cases.map((caseItem, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-shadow bg-white">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
-                  <Icon name={caseItem.icon} className="text-white" size={24} />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{caseItem.title}</h3>
-                <p className="text-muted-foreground">{caseItem.description}</p>
-              </Card>
-            ))}
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <Card className="p-6 border-2 hover:border-primary transition-all hover:shadow-lg">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 shadow-md">
+                <Icon name="ShoppingCart" className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">Ритейл и e-commerce</h3>
+              <p className="text-muted-foreground leading-relaxed">Автоматизация заказов, персонализация, прогноз спроса</p>
+            </Card>
+
+            <Card className="p-6 border-2 hover:border-primary transition-all hover:shadow-lg">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 shadow-md">
+                <Icon name="Factory" className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">Производство</h3>
+              <p className="text-muted-foreground leading-relaxed">Оптимизация процессов, предиктивное обслуживание</p>
+            </Card>
+
+            <Card className="p-6 border-2 hover:border-primary transition-all hover:shadow-lg">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 shadow-md">
+                <Icon name="TrendingUp" className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">Финансы</h3>
+              <p className="text-muted-foreground leading-relaxed">Анализ рисков, автоотчёты, прогноз трендов</p>
+            </Card>
+
+            <Card className="p-6 border-2 hover:border-primary transition-all hover:shadow-lg">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 shadow-md">
+                <Icon name="Users" className="text-white" size={28} />
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-foreground">HR и рекрутинг</h3>
+              <p className="text-muted-foreground leading-relaxed">Автоскрининг резюме, анализ эффективности</p>
+            </Card>
           </div>
         </div>
       </section>
 
-      <section id="benefits" className="py-20">
+      <section id="products" className="py-20 bg-gradient-to-b from-muted/30 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Почему выбирают нас</h2>
-            <p className="text-xl text-muted-foreground">Системный подход к внедрению ИИ</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow bg-white">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Icon name={benefit.icon} className="text-primary" size={32} />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
-              </Card>
-            ))}
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">Цепочка продуктов</h2>
+            <p className="text-lg text-muted-foreground">От знакомства с ИИ до полноценного внедрения. Системная методология работает.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <img 
-                src="https://cdn.poehali.dev/projects/60a75a1d-0104-4f70-904f-6dc549f87f40/files/e282e593-5d94-4283-a1c7-7513a692af08.jpg"
-                alt="Team collaboration"
-                className="rounded-2xl shadow-xl"
-              />
-            </div>
-            <div className="space-y-6">
-              <h3 className="text-3xl font-bold">50+ клиентов доверяют нам</h3>
-              <p className="text-lg text-muted-foreground">
-                Мы работаем с лидерами рынка в разных отраслях: от крупных сетей до среднего бизнеса. Наши клиенты видят реальное повышение эффективности уже в первые месяцы работы.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Icon name="Check" className="text-primary" size={16} />
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <Card className="p-8 border-2 hover:border-primary transition-all bg-white">
+              <div className="text-6xl font-bold text-primary/20 mb-4">01</div>
+              <h3 className="text-2xl font-bold mb-3 text-foreground">Мастер-класс</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">Понимаете возможности ИИ для вашего бизнеса. Видите первые кейсы.</p>
+              <div className="flex items-center gap-2 text-sm font-semibold text-primary">
+                <Icon name="Clock" size={16} />
+                <span>2-3 часа</span>
+              </div>
+            </Card>
+
+            <Card className="p-8 border-2 hover:border-primary transition-all bg-white relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-accent text-white text-xs font-bold rounded-full">
+                ПОПУЛЯРНО
+              </div>
+              <div className="text-6xl font-bold text-primary/20 mb-4">02</div>
+              <h3 className="text-2xl font-bold mb-3 text-foreground">Пилотный проект</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">Тестируем ИИ на ограниченной выборке. Видите измеримый результат.</p>
+              <div className="flex items-center gap-2 text-sm font-semibold text-primary">
+                <Icon name="Clock" size={16} />
+                <span>2-4 недели</span>
+              </div>
+            </Card>
+
+            <Card className="p-8 border-2 hover:border-primary transition-all bg-white">
+              <div className="text-6xl font-bold text-primary/20 mb-4">03</div>
+              <h3 className="text-2xl font-bold mb-3 text-foreground">Полное внедрение</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">Масштабируем решение. Интегрируем в процессы. Фиксируем ROI.</p>
+              <div className="flex items-center gap-2 text-sm font-semibold text-primary">
+                <Icon name="Clock" size={16} />
+                <span>1-3 месяца</span>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="expertise" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">Мы — эксперты в этом</h2>
+            <p className="text-lg text-muted-foreground">Доказательства, которым вы можете доверять</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+            <Card className="p-6 text-center border-2">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Icon name="Calendar" className="text-primary" size={32} />
+              </div>
+              <div className="text-3xl font-bold text-primary mb-2">8 лет</div>
+              <p className="text-muted-foreground">на рынке ИИ</p>
+            </Card>
+
+            <Card className="p-6 text-center border-2">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Icon name="Users" className="text-primary" size={32} />
+              </div>
+              <div className="text-3xl font-bold text-primary mb-2">50+</div>
+              <p className="text-muted-foreground">клиентов на постоянной подписке</p>
+            </Card>
+
+            <Card className="p-6 text-center border-2">
+              <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Icon name="Building2" className="text-primary" size={32} />
+              </div>
+              <div className="text-3xl font-bold text-primary mb-2">300+</div>
+              <p className="text-muted-foreground">обученных компаний</p>
+            </Card>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Card className="p-8 md:p-12 border-2 bg-gradient-to-br from-primary/5 to-accent/5">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <Icon name="Award" className="text-primary" size={32} />
+                    <h3 className="text-2xl font-bold text-foreground">Высокий NPS</h3>
                   </div>
-                  <div>
-                    <div className="font-semibold">Высокий NPS</div>
-                    <div className="text-muted-foreground">Клиенты рекомендуют нас партнёрам</div>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Клиенты рекомендуют нас партнёрам. Работаем с лидерами рынка в разных отраслях — от крупных сетей до среднего бизнеса.
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                        <Icon name="Check" className="text-white" size={14} />
+                      </div>
+                      <span className="text-sm font-medium text-foreground">Долгосрочное сотрудничество</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                        <Icon name="Check" className="text-white" size={14} />
+                      </div>
+                      <span className="text-sm font-medium text-foreground">Публичные кейсы и отзывы</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                        <Icon name="Check" className="text-white" size={14} />
+                      </div>
+                      <span className="text-sm font-medium text-foreground">Масштаб клиентов — лидеры отраслей</span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Icon name="Check" className="text-primary" size={16} />
-                  </div>
-                  <div>
-                    <div className="font-semibold">Постоянная подписка</div>
-                    <div className="text-muted-foreground">Долгосрочное сотрудничество и поддержка</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Icon name="Check" className="text-primary" size={16} />
-                  </div>
-                  <div>
-                    <div className="font-semibold">Публичные кейсы</div>
-                    <div className="text-muted-foreground">Открыто делимся результатами</div>
-                  </div>
+                <div className="space-y-4">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/60a75a1d-0104-4f70-904f-6dc549f87f40/files/e282e593-5d94-4283-a1c7-7513a692af08.jpg"
+                    alt="Команда экспертов"
+                    className="rounded-xl shadow-xl"
+                  />
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-gradient-to-b from-muted/30 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <img 
-              src="https://cdn.poehali.dev/projects/60a75a1d-0104-4f70-904f-6dc549f87f40/files/fa29bc05-1b67-44ea-a60f-6ae4bf6edd80.jpg"
-              alt="Analytics"
-              className="rounded-2xl shadow-xl mb-12"
-            />
-            <div className="text-center space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold">Цепочка продуктов</h2>
-              <p className="text-lg text-muted-foreground">От знакомства с ИИ до полноценного внедрения</p>
-              <div className="grid md:grid-cols-3 gap-6 mt-8">
-                <Card className="p-6 bg-white">
-                  <div className="text-4xl font-bold text-primary mb-2">01</div>
-                  <h3 className="text-xl font-semibold mb-2">Мастер-класс</h3>
-                  <p className="text-muted-foreground">Базовое понимание возможностей ИИ для вашего бизнеса</p>
-                </Card>
-                <Card className="p-6 bg-white">
-                  <div className="text-4xl font-bold text-primary mb-2">02</div>
-                  <h3 className="text-xl font-semibold mb-2">Пилотный проект</h3>
-                  <p className="text-muted-foreground">Тестовое внедрение на ограниченной выборке</p>
-                </Card>
-                <Card className="p-6 bg-white">
-                  <div className="text-4xl font-bold text-primary mb-2">03</div>
-                  <h3 className="text-xl font-semibold mb-2">Полное внедрение</h3>
-                  <p className="text-muted-foreground">Масштабирование и интеграция в процессы</p>
-                </Card>
+            <Card className="p-8 md:p-12 border-2 bg-white">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <img 
+                    src="https://cdn.poehali.dev/projects/60a75a1d-0104-4f70-904f-6dc549f87f40/files/fa29bc05-1b67-44ea-a60f-6ae4bf6edd80.jpg"
+                    alt="Результаты внедрения"
+                    className="rounded-xl shadow-xl"
+                  />
+                </div>
+                <div className="space-y-6">
+                  <h3 className="text-3xl font-bold text-foreground">Измеримый результат</h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Фиксируем метрики до и после внедрения. Вы видите реальное повышение операционной эффективности в цифрах.
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <Icon name="Target" className="text-primary flex-shrink-0 mt-1" size={24} />
+                      <div>
+                        <div className="font-bold text-foreground">Быстрое внедрение</div>
+                        <div className="text-sm text-muted-foreground">От идеи до результата за 2-4 недели</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Icon name="Zap" className="text-primary flex-shrink-0 mt-1" size={24} />
+                      <div>
+                        <div className="font-bold text-foreground">Точечные решения</div>
+                        <div className="text-sm text-muted-foreground">Закрываем конкретные бизнес-задачи</div>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Icon name="Users" className="text-primary flex-shrink-0 mt-1" size={24} />
+                      <div>
+                        <div className="font-bold text-foreground">Обучение команды</div>
+                        <div className="text-sm text-muted-foreground">Ваши сотрудники работают с ИИ</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </section>
 
-      <section id="contact" className="py-20">
+      <section id="contact" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">Готовы начать?</h2>
-              <p className="text-xl text-muted-foreground">Оставьте заявку, и мы свяжемся с вами в течение дня</p>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">Готовы начать?</h2>
+              <p className="text-lg text-muted-foreground">Оставьте заявку — свяжемся в течение дня</p>
             </div>
-            <Card className="p-8 bg-white shadow-xl">
+            
+            <Card className="p-8 border-2 shadow-xl">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Имя</label>
+                    <label className="text-sm font-semibold text-foreground">Ваше имя</label>
                     <Input 
                       placeholder="Иван Иванов"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       required
+                      className="border-2"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium">Email</label>
+                    <label className="text-sm font-semibold text-foreground">Email</label>
                     <Input 
                       type="email"
-                      placeholder="ivan@company.com"
+                      placeholder="ivan@company.ru"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       required
+                      className="border-2"
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Компания</label>
+                  <label className="text-sm font-semibold text-foreground">Компания</label>
                   <Input 
-                    placeholder="ООО «Компания»"
+                    placeholder="ООО «Ваша компания»"
                     value={formData.company}
                     onChange={(e) => setFormData({...formData, company: e.target.value})}
                     required
+                    className="border-2"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Сообщение</label>
+                  <label className="text-sm font-semibold text-foreground">Расскажите о вашей задаче</label>
                   <Textarea 
-                    placeholder="Расскажите о вашей задаче..."
+                    placeholder="Например: хотим автоматизировать обработку заявок клиентов..."
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                     required
+                    className="border-2"
                   />
                 </div>
                 <Button type="submit" size="lg" className="w-full text-base">
@@ -339,8 +382,8 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                   <Icon name="Brain" className="text-white" size={24} />
                 </div>
                 <span className="text-xl font-bold">ИИ-Университет</span>
@@ -348,23 +391,23 @@ const Index = () => {
               <p className="text-white/70">Внедрение ИИ для бизнеса с 2016 года</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Компания</h4>
+              <h4 className="font-bold mb-4 text-white">Решения</h4>
               <ul className="space-y-2 text-white/70">
-                <li><a href="#about" className="hover:text-white transition-colors">О нас</a></li>
                 <li><a href="#cases" className="hover:text-white transition-colors">Кейсы</a></li>
-                <li><a href="#benefits" className="hover:text-white transition-colors">Преимущества</a></li>
+                <li><a href="#products" className="hover:text-white transition-colors">Продукты</a></li>
+                <li><a href="#expertise" className="hover:text-white transition-colors">Экспертиза</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Услуги</h4>
+              <h4 className="font-bold mb-4 text-white">Форматы</h4>
               <ul className="space-y-2 text-white/70">
                 <li><a href="#" className="hover:text-white transition-colors">Мастер-классы</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Консалтинг</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Внедрение</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Пилотные проекты</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Полное внедрение</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Контакты</h4>
+              <h4 className="font-bold mb-4 text-white">Контакты</h4>
               <ul className="space-y-2 text-white/70">
                 <li className="flex items-center gap-2">
                   <Icon name="Mail" size={16} />
@@ -377,7 +420,7 @@ const Index = () => {
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-8 text-center text-white/70">
+          <div className="border-t border-white/10 pt-8 text-center text-white/70 text-sm">
             <p>© 2025 ИИ-Университет. Все права защищены.</p>
           </div>
         </div>
